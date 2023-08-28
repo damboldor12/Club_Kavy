@@ -1,0 +1,138 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content_main {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.content_main>* {
+    margin-top: 10px;
+}
+
+.content_futer {
+    height: 120px;
+    width: 100%;
+    position: relative;
+}
+
+.avatar {
+    height: 150px;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.position {
+    font-size: 16px;
+}
+
+.contacts {
+    display: flex;
+    width: 75%;
+    max-width: 400px;
+    min-width: 280px;
+    justify-content: space-between;
+    height: 45px;
+    margin-top: 30px;
+}
+
+.contacts > img {
+    height: 100%;
+}
+
+.logo {
+    position: absolute;
+    width: 120px;
+    top: -37px;
+    left: 20px;
+}
+
+.logo_bg_overflow {
+    overflow: hidden;
+    height: 120px;
+    width: 100%;
+    position: relative;
+}
+
+.logo_bg {
+    width: 110%;
+    background-color: #AFB2B6;
+    position: absolute;
+    height: 120px;
+    rotate: 3.9deg;
+    transform-origin: top left;
+    left: -3%;
+}
+
+.contacts_futer {
+    z-index: 2;
+    position: absolute;
+    left: 20px;
+    width: 120px;
+    bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts_futer:nth-child(2) {
+    left: auto;
+    bottom: 46px;
+    right: 20px;
+    color: white;
+    width: auto;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.contacts_futer > a > * {
+    height: 30px;
+}
+@media screen and (min-width: 355px) {
+    .contacts_futer:nth-child(2) {
+        font-size: 16px;
+    }
+
+}
+@media screen and (min-width: 555px) {
+    .contacts_futer:nth-child(2) {
+        right: 50%;
+        bottom: 20px;
+        font-size: 22px;
+        transform: translate(50%, 0);
+    }
+
+}
+
+@media screen and (min-width: 850px) {
+    .logo {
+        width: 160px;
+        top: -44px;
+        left: 95px;
+    }
+
+    .contacts_futer {
+        left: 95px;
+        bottom: 20px;
+        width: 160px;
+    }
+
+    .contacts_futer>* {
+        height: 35px;
+    }
+}
