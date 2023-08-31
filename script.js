@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 navLinksArray[2].classList.add('nav_link_active'); // Визначаємо ТРЕТІЙ ПУНКТ МЕНЮ АКТИВНИМ
 
                 ActiveProjectElement += 1; // Кажемо, що номер активного елементу БІЛЬШЕ, НІЖ ПРОЕКТІВ 
-                exit; // вихід
+                return; // вихід
             }
 
             if (ActiveProjectElement == numberOfProjects + 1) { // Якщо ВЖЕ зайшли на ОДИН КРОК за ПРОЕКТИ
@@ -207,20 +207,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Старі версії IE
         document.attachEvent('onmousewheel', handleWheel);
     }
+    function GoToSTART() {
+        mainDescription.style.top = '45%';
+    
+        navLinksArray.forEach(link => {
+            link.classList.remove('nav_link_active');
+        });
+        navLinksArray[0].classList.add('nav_link_active');
+    
+        contacts.style.transform = 'translate(0, 100%)';
+    
+        ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, 100%)' });
+        ActiveProjectElement = 0;
+
+    }
+
 });
-
-function GoToSTART() {
-    mainDescription.style.top = '45%';
-
-    navLinksArray.forEach(link => {
-        link.classList.remove('nav_link_active');
-    });
-    navLinksArray[0].classList.add('nav_link_active');
-
-    contacts.style.transform = 'translate(0, 100%)';
-
-    ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, 100%)' });
-    ActiveProjectElement = 0;
-
-    exit;
-}
