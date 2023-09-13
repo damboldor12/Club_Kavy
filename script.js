@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (ActiveProjectElement > 0 && ActiveProjectElement <= numberOfProjects) {
                 ActiveProjectElement -= 1;
-                // Ваш код для виконання дії при свайпі вгору або вниз
                 if (ActiveProjectElement == 0 || ActiveProjectElement == numberOfProjects + 1) {
                     mainDescription.classList.remove('mainDescription_when_PROJECTS');
                     mainDescription.classList.remove('mainDescription_when_HIDEN');
@@ -208,7 +207,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function GoToSTART() {
-        mainDescription.style.top = '45%';
+        mainDescription.classList.remove('mainDescription_when_PROJECTS');
+        mainDescription.classList.remove('mainDescription_when_HIDEN');
     
         navLinksArray.forEach(link => {
             link.classList.remove('nav_link_active');
