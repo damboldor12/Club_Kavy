@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(WindowHeight); // Виправлено "WindowHeight"
         Content.style.height = WindowHeight + "px"; // Додано "px"
     }
-    var interval = setInterval(handleScreenWidthChange, 1);
+    var interval = setInterval(handleScreenWidthChange, 5);
 });
 
 function SelectProject(selected) {

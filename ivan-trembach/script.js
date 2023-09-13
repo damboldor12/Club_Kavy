@@ -29,11 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(WindowHeight); // Виправлено "WindowHeight"
         Content.style.height = WindowHeight + "px"; // Додано "px"
     }
-
-    // Додайте обробник події для відслідковування зміни ширини екрану
-    window.addEventListener('resize', handleScreenWidthChange);
-    handleScreenWidthChange();
-
+    var interval = setInterval(handleScreenWidthChange, 5);
 });
 
 function SelectProject(selected) {
