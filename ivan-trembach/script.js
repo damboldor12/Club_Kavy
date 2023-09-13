@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
             RemoveSelected()
         });
     });
+    var WindowHeight = window.innerHeight; // Виправлено innerHeight
+var Content = document.getElementById("content"); // Виправлено getElementbyid на getElementById
+console.log(WindowHeight); // Виправлено "WindowHeight"
+Content.style.height = WindowHeight + "px"; // Додано "px"
 });
 
 function SelectProject(selected) {
@@ -56,8 +60,3 @@ function HideContacts() {
         }, 250);
     });
 }
-
-var WindowHeight = window.innerHeight; // Виправлено innerHeight
-var Content = document.getElementById("content"); // Виправлено getElementbyid на getElementById
-console.log(WindowHeight); // Виправлено "WindowHeight"
-Content.style.height = WindowHeight + "px"; // Додано "px"
