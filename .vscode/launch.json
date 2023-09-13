@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "msedge",
+            "name": "clubkavy.com",
+            "request": "launch",
+            "url": "clubkavy.com"
+        }
+    ]
+}

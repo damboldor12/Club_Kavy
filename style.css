@@ -102,7 +102,13 @@ select {
     top: 45%;
     left: 15%;
 }
-
+@media (max-width: 780px) {
+    
+.main_description {
+    width: 90%;
+    left: 5%;
+}
+}
 .main_nav {
     display: flex;
     flex-direction: column;

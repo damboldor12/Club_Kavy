@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentTime - lastActionTime >= actionInterval) { // перевіряємо чи пройшло достатньо часу
             lastActionTime = currentTime; // записуємо коли спрацювала функція
 
-            if (ActiveProjectElement == numberOfProjects) { // Дивимось вже розгонтуто ОСТАНІЙ ЕЛЕМЕНТ з проектів
+            if (ActiveProjectElement == numberOfProjects) { // Дивимось чи вже розгонтуто ОСТАНІЙ ЕЛЕМЕНТ з проектів
                 // якщо так - то хочваємо все і йдемо до блоку з КОНТАКТАМИ
 
                 // ХОВАЄМО ОПИС КОМПАНІЇ (за верхню частину сайту)
@@ -105,17 +105,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 navLinksArray[2].classList.add('nav_link_active'); // Визначаємо ТРЕТІЙ ПУНКТ МЕНЮ АКТИВНИМ
 
                 ActiveProjectElement += 1; // Кажемо, що номер активного елементу БІЛЬШЕ, НІЖ ПРОЕКТІВ 
-                return; // вихід
+                return "contacts"
             }
 
             if (ActiveProjectElement == numberOfProjects + 1) { // Якщо ВЖЕ зайшли на ОДИН КРОК за ПРОЕКТИ
                 GoToSTART(); // повертаємо на головний екран все
+                return "start";
             }
 
-            if (ActiveProjectElement < numberOfProjects) {
-                console.log('< numberOfProjects');
-                // Ваш код для виконання дії при свайпі вгору або вниз
-                mainDescription.style.top = '10% ';
+            if (ActiveProjectElement < numberOfProjects) {// Якщо ще залишились НЕ РОЗГОРНУТІ ПРОЕКТИ
+                mainDescription.classList.add = 'mainDescription_when_PROJECTS ';
                 navLinksArray.forEach(link => {
                     link.classList.remove('nav_link_active');
                 });
@@ -123,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 ProjectElement[ActiveProjectElement].style.transform = 'translate(0, 0)';
                 ActiveProjectElement += 1;
+                return "next";
             }
 
 
@@ -186,8 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('touchstart', handleTouchStart);
     document.addEventListener('touchend', handleTouchEnd);
 
-
-
     function handleWheel(event) {
         event = event || window.event; // Для кросбраузерності
         const deltaY = event.deltaY || event.detail || (-event.wheelDelta); // Для різних браузерів
@@ -198,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function () {
             performAction_second();
         }
     }
-
     if (document.addEventListener) {
         // Сучасні браузери, які підтримують addEventListener
         document.addEventListener('wheel', handleWheel);
@@ -207,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Старі версії IE
         document.attachEvent('onmousewheel', handleWheel);
     }
+
     function GoToSTART() {
         mainDescription.style.top = '45%';
     
@@ -223,3 +221,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+
+function handleScreenWidthChange() {
+    if (window.innerWidth < 780 && AdaptedFor != 'phone') {
+      // Ваш код, який виконується, коли ширина екрану менше 780 пікселів
+
+
+      console.log('Ширина екрану менше 780 пікселів');
+      AdaptedFor = 'phone';
+    }
+    else if (window.innerWidth > 780 && AdaptedFor != 'pc') {
+        // Ваш код, який виконується, коли ширина екрану більше 780 пікселів
+        console.log('Ширина екрану більше 780 пікселів');
+        AdaptedFor = 'pc';
+      }
+  }
+  
+  // Додайте обробник події для відслідковування зміни ширини екрану
+  window.addEventListener('resize', handleScreenWidthChange);
+  var AdaptedFor = '';
+  handleScreenWidthChange();
