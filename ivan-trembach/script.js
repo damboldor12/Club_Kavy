@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Додайте обробник події для відслідковування зміни ширини екрану
     window.addEventListener('resize', handleScreenWidthChange);
-    var AdaptedFor = '';
     handleScreenWidthChange();
 
 });
