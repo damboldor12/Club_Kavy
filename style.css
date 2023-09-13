@@ -109,6 +109,9 @@ select {
 .mainDescription_when_PROJECTS {
     top: 10%;
 }
+.mainDescription_when_HIDEN {
+    top: -50%;
+}
 
 @media (max-width: 780px) {
     

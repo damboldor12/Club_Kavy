@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // якщо так - то хочваємо все і йдемо до блоку з КОНТАКТАМИ
 
                 // ХОВАЄМО ОПИС КОМПАНІЇ (за верхню частину сайту)
-                mainDescription.style.top = '-50% ';
-
+                mainDescription.classList.add('mainDescription_when_HIDEN');
+                mainDescription.classList.remove('mainDescription_when_PROJECTS');
                 //Беремо ВСІ ПРОЕКТИ І ховаємо в верх
                 ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, -100vh)' });
 
@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (ActiveProjectElement < numberOfProjects) {// Якщо ще залишились НЕ РОЗГОРНУТІ ПРОЕКТИ
                 mainDescription.classList.add('mainDescription_when_PROJECTS');
+                mainDescription.classList.remove('mainDescription_when_HIDEN');
                 navLinksArray.forEach(link => {
                     link.classList.remove('nav_link_active');
                 });
