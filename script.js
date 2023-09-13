@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (ActiveProjectElement < numberOfProjects) {// Якщо ще залишились НЕ РОЗГОРНУТІ ПРОЕКТИ
-                mainDescription.classList.add = 'mainDescription_when_PROJECTS ';
+                mainDescription.classList.add('mainDescription_when_PROJECTS');
                 navLinksArray.forEach(link => {
                     link.classList.remove('nav_link_active');
                 });
@@ -224,10 +224,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function handleScreenWidthChange() {
+
+
     if (window.innerWidth < 780 && AdaptedFor != 'phone') {
+
       // Ваш код, який виконується, коли ширина екрану менше 780 пікселів
-
-
       console.log('Ширина екрану менше 780 пікселів');
       AdaptedFor = 'phone';
     }

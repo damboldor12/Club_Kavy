@@ -102,11 +102,19 @@ select {
     top: 45%;
     left: 15%;
 }
+
+.mainDescription_when_PROJECTS {
+    top: 10%;
+}
+
 @media (max-width: 780px) {
     
 .main_description {
     width: 90%;
     left: 5%;
+}
+.mainDescription_when_PROJECTS {
+    top: -50%;
 }
 }
 .main_nav {
