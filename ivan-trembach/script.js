@@ -20,10 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
             RemoveSelected()
         });
     });
-    var WindowHeight = window.innerHeight; // Виправлено innerHeight
-var Content = document.getElementById("content"); // Виправлено getElementbyid на getElementById
-console.log(WindowHeight); // Виправлено "WindowHeight"
-Content.style.height = WindowHeight + "px"; // Додано "px"
+
+
+
+    function handleScreenWidthChange() {
+        var WindowHeight = window.innerHeight; // Виправлено innerHeight
+        var Content = document.getElementById("content"); // Виправлено getElementbyid на getElementById
+        console.log(WindowHeight); // Виправлено "WindowHeight"
+        Content.style.height = WindowHeight + "px"; // Додано "px"
+    }
+
+    // Додайте обробник події для відслідковування зміни ширини екрану
+    window.addEventListener('resize', handleScreenWidthChange);
+    var AdaptedFor = '';
+    handleScreenWidthChange();
+
 });
 
 function SelectProject(selected) {
