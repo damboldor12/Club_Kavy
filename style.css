@@ -103,6 +103,9 @@ select {
     left: 15%;
 }
 
+.main_description {
+    color: #761616;
+}
 .mainDescription_when_PROJECTS {
     top: 10%;
 }
