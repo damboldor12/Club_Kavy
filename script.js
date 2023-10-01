@@ -1,17 +1,21 @@
+var lastActionTime = 0; // Прописуємо початкове значення для інтервалу між анімаціями
+var ActiveProjectElement = 0; // Визначаємо який елемент буде активний з самого початку
+const actionInterval = 300; // час між командами в мілісекундах
+var numberOfProjects;
+var mainDescription;
+var navLinksArray;
+var NavLinks;
+var contacts; 
+var ProjectElement;
+var ProjectElementArray;
+
 document.addEventListener('DOMContentLoaded', function () {
-    const NavLinks = this.getElementsByClassName("nav_link"); // Визначаємо рядки МЕНЮ
-    const navLinksArray = Array.from(NavLinks); // Створюємо МАСИВ рядків МЕНЮ
-
-
-    const mainDescription = document.getElementById('main_description'); // Визначаємо головний БЛОК ОПИСУ КОМПАНІЇ
-
-    const contacts = document.getElementById('contacts'); // Визначаємо блок з КОНТАКТАМИ
+    NavLinks = this.getElementsByClassName("nav_link"); // Визначаємо рядки МЕНЮ
+    navLinksArray = Array.from(NavLinks); // Створюємо МАСИВ рядків МЕНЮ
+    mainDescription = document.getElementById('main_description'); // Визначаємо головний БЛОК ОПИСУ КОМПАНІЇ
+    contacts = document.getElementById('contacts'); // Визначаємо блок з КОНТАКТАМИ
     const projectContainer = document.body; // Визначаємо куди будемо вставляти блоки з ПРОЕКТАМИ
-
-
-    //ІНТЕРВАЛИ МІЖ АНІМАЦІЯМИ
-    let lastActionTime = 0; // Прописуємо початкове значення для інтервалу між анімаціями
-    const actionInterval = 300; // час між командами в мілісекундах
+  
 
     // МАСИВ З ІНФОРМАЦІЄЮ ПРО ПРОЕКТИ
     const projects = [{
@@ -73,103 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
         translateX += 40; // робимо зсув титулки на кожному циклі
     }
 
-    const ProjectElement = document.getElementsByClassName('ProjectElement'); // Визначаємо всі створені БЛОКИ З ПРОЕКТАМИ
-    const ProjectElementArray = Array.from(ProjectElement); // Створюємо МАСИВ з БЛОКІВ ПРОЕКТІВ
-    const numberOfProjects = Object.keys(projects).length;// Рахуємо КІЛЬКІСТЬ ПРОЕКТІВ
-
-
-    let ActiveProjectElement = 0; // Визначаємо який елемент буде активний з самого початку
-
-
-
-
-
-    function performAction() { // Функція, коли хочемо йти ВНИЗ по сайту
-        const currentTime = Date.now(); // записали поточний час
-
-
-        if (currentTime - lastActionTime >= actionInterval) { // перевіряємо чи пройшло достатньо часу
-            lastActionTime = currentTime; // записуємо коли спрацювала функція
-
-            if (ActiveProjectElement == numberOfProjects) { // Дивимось чи вже розгонтуто ОСТАНІЙ ЕЛЕМЕНТ з проектів
-                // якщо так - то хочваємо все і йдемо до блоку з КОНТАКТАМИ
-
-                // ХОВАЄМО ОПИС КОМПАНІЇ (за верхню частину сайту)
-                mainDescription.classList.add('mainDescription_when_HIDEN');
-                mainDescription.classList.remove('mainDescription_when_PROJECTS');
-                //Беремо ВСІ ПРОЕКТИ І ховаємо в верх
-                ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, -100vh)' });
-
-                //Виводимо блок контактів на пів екрану в верх
-                contacts.style.transform = 'translate(0, -50vh)';
-
-                navLinksArray.forEach(link => { // ЗНІМАЄМО клас АКТИВНОГО РЯДКА МЕНЮ з всіх рядків
-                    link.classList.remove('nav_link_active');
-                });
-
-                navLinksArray[2].classList.add('nav_link_active'); // Визначаємо ТРЕТІЙ ПУНКТ МЕНЮ АКТИВНИМ
-
-                ActiveProjectElement += 1; // Кажемо, що номер активного елементу БІЛЬШЕ, НІЖ ПРОЕКТІВ 
-                return "contacts"
-            }
-
-            if (ActiveProjectElement == numberOfProjects + 1) { // Якщо ВЖЕ зайшли на ОДИН КРОК за ПРОЕКТИ
-                GoToSTART(); // повертаємо на головний екран все
-                return "start";
-            }
-
-            if (ActiveProjectElement < numberOfProjects) {// Якщо ще залишились НЕ РОЗГОРНУТІ ПРОЕКТИ
-                mainDescription.classList.add('mainDescription_when_PROJECTS');
-                mainDescription.classList.remove('mainDescription_when_HIDEN');
-                navLinksArray.forEach(link => {
-                    link.classList.remove('nav_link_active');
-                });
-                navLinksArray[1].classList.add('nav_link_active');
-
-                ProjectElement[ActiveProjectElement].style.transform = 'translate(0, 0)';
-                ActiveProjectElement += 1;
-                return "next";
-            }
-
-
-        }
-    }
-
-    function performAction_second() {
-        const currentTime = Date.now();
-
-        if (currentTime - lastActionTime >= actionInterval) {
-            lastActionTime = currentTime;
-
-
-
-            if (ActiveProjectElement > 0 && ActiveProjectElement <= numberOfProjects) {
-                ActiveProjectElement -= 1;
-                if (ActiveProjectElement == 0 || ActiveProjectElement == numberOfProjects + 1) {
-                    mainDescription.classList.remove('mainDescription_when_PROJECTS');
-                    mainDescription.classList.remove('mainDescription_when_HIDEN');
-                    navLinksArray.forEach(link => {
-                        link.classList.remove('nav_link_active');
-                    });
-                    navLinksArray[0].classList.add('nav_link_active');
-                }
-                ProjectElement[ActiveProjectElement].style.transform = 'translate(0, 100%)';
-            }
-
-            if (ActiveProjectElement > numberOfProjects) {
-                mainDescription.style.top = '10% ';
-                ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, 0)' });
-                contacts.style.transform = 'translate(0, 100%)';
-                navLinksArray.forEach(link => {
-                    link.classList.remove('nav_link_active');
-                });
-                navLinksArray[1].classList.add('nav_link_active');
-                ActiveProjectElement -= 1;
-            }
-        }
-    }
-
-
+    ProjectElement = document.getElementsByClassName('ProjectElement'); // Визначаємо всі створені БЛОКИ З ПРОЕКТАМИ
+    ProjectElementArray = Array.from(ProjectElement); // Створюємо МАСИВ з БЛОКІВ ПРОЕКТІВ
+    numberOfProjects = Object.keys(projects).length;// Рахуємо КІЛЬКІСТЬ ПРОЕКТІВ
 
     let touchStartY = 0;
     function handleTouchStart(event) {
@@ -211,25 +121,126 @@ document.addEventListener('DOMContentLoaded', function () {
         document.attachEvent('onmousewheel', handleWheel);
     }
 
-    function GoToSTART() {
-        mainDescription.classList.remove('mainDescription_when_PROJECTS');
-        mainDescription.classList.remove('mainDescription_when_HIDEN');
-    
-        navLinksArray.forEach(link => {
-            link.classList.remove('nav_link_active');
-        });
-        navLinksArray[0].classList.add('nav_link_active');
-    
-        contacts.style.transform = 'translate(0, 100%)';
-    
-        ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, 100%)' });
-        ActiveProjectElement = 0;
 
-    }
 
 });
 
+function GoToProjects() {
+    ActiveProjectElement = 0;
+        for (let i = 0; i < ProjectElementArray.length; i++) {
+            if (i !== ActiveProjectElement) {
+                ProjectElementArray[i].style.transform = 'translate(0, 90%)';
+            }
+        }
+        performAction();
+    contacts.style.transform = 'translate(0, 100%)';
+}
+function GoToContacts() {
+    ActiveProjectElement = numberOfProjects;
+    performAction();
+}
 
+
+function performAction() { // Функція, коли хочемо йти ВНИЗ по сайту
+    const currentTime = Date.now(); // записали поточний час
+
+
+    if (currentTime - lastActionTime >= actionInterval) { // перевіряємо чи пройшло достатньо часу
+        lastActionTime = currentTime; // записуємо коли спрацювала функція
+
+        if (ActiveProjectElement == numberOfProjects) { // Дивимось чи вже розгонтуто ОСТАНІЙ ЕЛЕМЕНТ з проектів
+            // якщо так - то хочваємо все і йдемо до блоку з КОНТАКТАМИ
+
+            // ХОВАЄМО ОПИС КОМПАНІЇ (за верхню частину сайту)
+            mainDescription.classList.add('mainDescription_when_HIDEN');
+            mainDescription.classList.remove('mainDescription_when_PROJECTS');
+            //Беремо ВСІ ПРОЕКТИ І ховаємо в верх
+            ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, -100vh)' });
+
+            //Виводимо блок контактів на пів екрану в верх
+            contacts.style.transform = 'translate(0, -50vh)';
+
+            navLinksArray.forEach(link => { // ЗНІМАЄМО клас АКТИВНОГО РЯДКА МЕНЮ з всіх рядків
+                link.classList.remove('nav_link_active');
+            });
+
+            navLinksArray[2].classList.add('nav_link_active'); // Визначаємо ТРЕТІЙ ПУНКТ МЕНЮ АКТИВНИМ
+
+            ActiveProjectElement += 1; // Кажемо, що номер активного елементу БІЛЬШЕ, НІЖ ПРОЕКТІВ 
+            return "contacts"
+        }
+
+        if (ActiveProjectElement == numberOfProjects + 1) { // Якщо ВЖЕ зайшли на ОДИН КРОК за ПРОЕКТИ
+            GoToSTART(); // повертаємо на головний екран все
+            return "start";
+        }
+
+        if (ActiveProjectElement < numberOfProjects) {// Якщо ще залишились НЕ РОЗГОРНУТІ ПРОЕКТИ
+            mainDescription.classList.add('mainDescription_when_PROJECTS');
+            mainDescription.classList.remove('mainDescription_when_HIDEN');
+            navLinksArray.forEach(link => {
+                link.classList.remove('nav_link_active');
+            });
+            navLinksArray[1].classList.add('nav_link_active');
+
+            ProjectElement[ActiveProjectElement].style.transform = 'translate(0, 0)';
+            ActiveProjectElement += 1;
+            return "next";
+        }
+
+
+    }
+}
+
+function performAction_second() {
+    const currentTime = Date.now();
+
+    if (currentTime - lastActionTime >= actionInterval) {
+        lastActionTime = currentTime;
+
+
+
+        if (ActiveProjectElement > 0 && ActiveProjectElement <= numberOfProjects) {
+            ActiveProjectElement -= 1;
+            if (ActiveProjectElement == 0 || ActiveProjectElement == numberOfProjects + 1) {
+                mainDescription.classList.remove('mainDescription_when_PROJECTS');
+                mainDescription.classList.remove('mainDescription_when_HIDEN');
+                navLinksArray.forEach(link => {
+                    link.classList.remove('nav_link_active');
+                });
+                navLinksArray[0].classList.add('nav_link_active');
+            }
+            ProjectElement[ActiveProjectElement].style.transform = 'translate(0, 100%)';
+        }
+
+        if (ActiveProjectElement > numberOfProjects) {
+            mainDescription.classList.add('mainDescription_when_PROJECTS');
+            mainDescription.classList.remove('mainDescription_when_HIDEN');
+            ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, 0)' });
+            contacts.style.transform = 'translate(0, 100%)';
+            navLinksArray.forEach(link => {
+                link.classList.remove('nav_link_active');
+            });
+            navLinksArray[1].classList.add('nav_link_active');
+            ActiveProjectElement -= 1;
+        }
+    }
+}
+function GoToSTART() {
+    mainDescription.classList.remove('mainDescription_when_PROJECTS');
+    mainDescription.classList.remove('mainDescription_when_HIDEN');
+
+    navLinksArray.forEach(link => {
+        link.classList.remove('nav_link_active');
+    });
+    navLinksArray[0].classList.add('nav_link_active');
+
+    contacts.style.transform = 'translate(0, 100%)';
+
+    ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, 100%)' });
+    ActiveProjectElement = 0;
+
+}
 function handleScreenWidthChange() {
 
 

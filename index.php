@@ -24,9 +24,9 @@
 
 
     <nav class="main_nav">
-        <a href="" id="nav_link_about" class="nav_link nav_link_active">Про нас</a>
-        <a href="" id="nav_link_projects" class="nav_link">Проєкти</a>
-        <a href="" id="nav_link_contacts" class="nav_link">Контакти</a>
+        <div href="" onclick="GoToSTART()"id="nav_link_about" class="nav_link nav_link_active">Про нас</div>
+        <div href="" onclick="GoToProjects()" id="nav_link_projects" class="nav_link">Проєкти</div>
+        <div href="" onclick="GoToContacts()" id="nav_link_contacts" class="nav_link">Контакти</div>
     </nav>
 
     <div id="contacts" class="contacts">КОНТАКТИ</div>
