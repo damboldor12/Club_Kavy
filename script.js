@@ -19,31 +19,36 @@ document.addEventListener('DOMContentLoaded', function () {
         Logo: 'logo.png',
         MiniLogo: '../img/ClubKavy.svg',
         TextColor: 'black',
-        BackgroundColor: '#FFFFFF'
+        BackgroundColor: '#FFFFFF',
+        Description:'CLUB KAVY мережа кав‘ярень'
     }, {
         Name: 'MYATA',
         Logo: 'logo.png',
         MiniLogo: '../img/MYATA.svg',
         TextColor: 'black',
-        BackgroundColor: '#C4DDDA'
+        BackgroundColor: '#C4DDDA',
+        Description:'MYATA espresso bar'
     }, {
         Name: '4943',
         Logo: 'logo.png',
         MiniLogo: '../img/4943.svg',
         TextColor: 'white',
-        BackgroundColor: 'black'
+        BackgroundColor: 'black',
+        Description:'49’43 coffeeshop'
     }, {
         Name: 'Simple',
         Logo: 'logo.png',
         MiniLogo: '../img/SIMPLE.svg',
         TextColor: 'white',
-        BackgroundColor: '#E84133'
+        BackgroundColor: '#E84133',
+        Description:'SIMPLE'
     }, {
         Name: 'ROOF',
         Logo: 'logo.png',
         MiniLogo: '../img/ROOF.svg',
         TextColor: 'black',
-        BackgroundColor: '#FFCC00'
+        BackgroundColor: '#FFCC00',
+        Description:'ROOF'
     }
     ];
     let translateX = 0; // Визначаємо початкову змінну для зсуву ТИТУЛКИ ПРОЕКТІВ
@@ -61,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ${project.Name}
         </div>
 
-          <h2>${project.Name}</h2>
+          <h2>${project.Description}</h2>
         `;
 
         projectContainer.appendChild(projectDiv); // вставляємо DIV в зарання визначений блок
