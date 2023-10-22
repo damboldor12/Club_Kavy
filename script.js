@@ -253,7 +253,7 @@ function performAction() { // Функція, коли хочемо йти ВН�
             ProjectElementArray.forEach(element => { element.style.transform = 'translate(0, -100vh)' });
 
             //Виводимо блок контактів на пів екрану в верх
-            contacts.style.transform = 'translate(0, -50vh)';
+            contacts.style.transform = 'translate(0, 0vh)';
 
             navLinksArray.forEach(link => { // ЗНІМАЄМО клас АКТИВНОГО РЯДКА МЕНЮ з всіх рядків
                 link.classList.remove('nav_link_active');
