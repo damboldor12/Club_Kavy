@@ -224,7 +224,7 @@ function GoToProjects() {
     ActiveProjectElement = 0;
     for (let i = 0; i < ProjectElementArray.length; i++) {
         if (i !== ActiveProjectElement) {
-            ProjectElementArray[i].style.transform = 'translate(0, 90%)';
+            ProjectElementArray[i].style.transform = 'translate(0, 100%)';
         }
     }
     performAction();
