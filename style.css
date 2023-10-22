@@ -28,10 +28,12 @@ dl,
 dd {
     margin: 0;
 }
+
 body * {
-    
+
     transition: 0.5s;
 }
+
 /* Выставляем основные настройки по-умолчанию для body */
 body {
     height: 100vh;
@@ -47,8 +49,10 @@ body {
     line-height: 1.5;
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
+
+
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
@@ -103,26 +107,29 @@ select {
     left: 15%;
 }
 
-.main_description > b {
+.main_description>b {
     color: #761616;
 }
+
 .mainDescription_when_PROJECTS {
     top: 10%;
 }
+
 .mainDescription_when_HIDEN {
     top: -50%;
 }
 
-@media (max-width: 780px) {
+
+    .main_description {
+        width: 90%;
+        left: 5%;
+    }
+
+    .mainDescription_when_PROJECTS {
+        top: -50%;
+    }
     
-.main_description {
-    width: 90%;
-    left: 5%;
-}
-.mainDescription_when_PROJECTS {
-    top: -50%;
-}
-}
+
 .main_nav {
     display: flex;
     flex-direction: column;
@@ -137,10 +144,15 @@ select {
     margin-top: 15px;
 }
 
+.nav_link:hover {
+    scale: 1.2;
+}
+
 .nav_link_active {
-    font-size: 1.4rem;
+    font-size: 1.2em;
     opacity: 1;
 }
+
 .ProjectElement {
     position: absolute;
     bottom: 0;
@@ -149,6 +161,7 @@ select {
     width: 100%;
     height: 300px;
 }
+
 .Project_Title {
     position: absolute;
     top: 0;
@@ -160,6 +173,7 @@ select {
     align-items: center;
     justify-content: flex-start;
 }
+
 .Project_Title_Logo_Box {
     display: flex;
     justify-content: center;
@@ -167,14 +181,105 @@ select {
     width: 40px;
     height: 40px;
 }
+
 .Project_Title_Logo {
     width: 25px;
     height: 25px;
 }
+
+.Project_Description {
+    display: flex;
+    width: 65%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 0px 38px;
+    font-size: 1.2em;
+    justify-content: center;
+}
+
+
+.Project_Contacts {
+    display: flex;
+    flex-direction: row;
+}
+
+.Project_Contacts svg {
+    width: 50px;
+    height: 50px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.Project_Contacts svg:hover {
+    scale: 1.1;
+}
+
 .contacts {
     position: absolute;
     bottom: 0;
     left: 20%;
     transform: translate(0, 100%);
     font-size: 32px;
+}
+
+.Project_Contact_Icon {
+    width: 50px;
+}
+
+.Project_Right_Side {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px 0px;
+}
+
+@media (max-width:1500px) {
+    body {
+        font-size: 16px;
+    }
+}
+@media (max-width:1280px) {
+    body {
+        font-size: 14px;
+    }
+}
+@media (max-width:780px) {
+    body {
+        font-size: 12px;
+    }.ProjectElement {
+        height: 400px;
+    }
+    
+    .Project_Right_Side {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0px 50px 0px;
+    }
+    .Project_Right_Side img {
+        height: 78px;
+        margin-top: 20px;
+    }
+    .Project_Contacts svg {
+        width: 40px !important; 
+        height: 40px !important;
+    }
+    .Project_Description {
+        width: 100%;
+        padding: 125px 10px 90px 10px;
+        line-height: 1.2;
+    }
 }
