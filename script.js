@@ -185,10 +185,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const touchEndY = event.changedTouches[0].clientY;
         const deltaY = touchEndY - touchStartY;
 
-        if (deltaY > 0) {
+        if (deltaY > 10) {
             performAction_second();
             // Користувач зробив свайп вниз
-        } else if (deltaY < 0) {
+        } else if (deltaY < -10) {
             // Користувач зробив свайп вверх
             performAction();
         }
