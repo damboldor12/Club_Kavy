@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Sitle: 'https://im-simple.com.ua/',
         Map: '',
         Telegram: '',
-        Email: 'https://mailto:im.simplecoffee@gmail.com',
+        Email: 'mailto:im.simplecoffee@gmail.com',
         IconColor: 'white'
     }, {
         Name: 'ROOF',
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Sitle: 'https://roofcoffee.com.ua/',
         Map: '',
         Telegram: 'https://t.me/roofspecialty',
-        Email: 'https://mailto:roof.specialtycoffee@gmail.com',
+        Email: 'mailto:roof.specialtycoffee@gmail.com',
         IconColor: 'black'
     }
     ];
