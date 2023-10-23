@@ -30,7 +30,7 @@
 
     <div id="contacts" class="contacts">
         <p  style="font-size:24px">Контакти для співпраці</p> <br> <br>
-        <p onclick="window.open('mailto:office@clubkavy.com', '_blank');" style="font-size: 14px">E-mail:<br> office@clubkavy.com</p>
+        <p onclick="window.open('mailto:office@clubkavy.com', '_blank');" style="font-size: 14px">E-mail:<br> office@clubkavy.com</p><br>
         <p onclick="window.open('https://maps.app.goo.gl/EC4mpPEEyzGnrr1E8', '_blank');" style="font-size:14px">Адреса:<br> 29000, м.Хмельницький, вул. Франка 28</p><br>
         <p onclick="window.open('tel:+380960090099', '_blank');" style="font-size: 14px">Телефон:<br> +380 96 009 00 99</p>
     </div>
