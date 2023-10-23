@@ -95,14 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentProjectIndex = 0;
     for (const projectKey in projects) { // Проходимо по кожному масиву ПРОЕКТУ
         const project = projects[projectKey];
-        currentProjectIndex++;
         const projectDiv = document.createElement('div'); // створюємо DIV для кожного проекту
         projectDiv.classList.add('ProjectElement'); // додаємо йму класс для стилів
         projectDiv.style.color = `${project.TextColor}`; // визначаємо колір тексту з змінних
         projectDiv.style.background = `${project.BackgroundColor}`;// визначаємо колір фону з змінних
         projectDiv.innerHTML = `
 
-        <div class="Project_Title" style="transform: translate(${translateX}px, -95%); background:${project.BackgroundColor}">
+        <div onclick="GoToProject(${currentProjectIndex})" class="Project_Title" style="transform: translate(${translateX}px, -95%); background:${project.BackgroundColor}">
         <div class="Project_Title_Logo_Box"> <img class="Project_Title_Logo" src="${project.MiniLogo}"> </div>
         ${project.Name}
         </div>
@@ -168,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
         `;
 
+        currentProjectIndex++;
         projectContainer.appendChild(projectDiv); // вставляємо DIV в зарання визначений блок
         translateX += 40; // робимо зсув титулки на кожному циклі
     }
@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function GoToProjects() {
-    ActiveProjectElement = 0;
+function GoToProject(nomber) {
+    ActiveProjectElement = nomber;
     for (let i = 0; i < ProjectElementArray.length; i++) {
         if (i !== ActiveProjectElement) {
             ProjectElementArray[i].style.transform = 'translate(0, 100%)';
@@ -278,7 +278,9 @@ function performAction() { // Функція, коли хочемо йти ВН�
             });
             navLinksArray[1].classList.add('nav_link_active');
 
-            ProjectElement[ActiveProjectElement].style.transform = 'translate(0, 0)';
+            for (let i = 0; i <= ActiveProjectElement; i++) {
+                ProjectElement[i].style.transform = 'translate(0, 0)';
+            }
             ActiveProjectElement += 1;
             return "next";
         }

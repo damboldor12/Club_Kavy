@@ -13,19 +13,18 @@
 </head>
 
 <body>
-    <p id="main_description" class="main_description">Клуб Кави - це компанія з більш, як десятирічним досвідом в кавовій сфері України. Ми створюємо унікальні проекти, що ефективно працюють у різних напрямках: <br><br>
+    <p id="main_description" class="main_description">Клуб Кави - це компанія з більш, як десятирічним досвідом в кавовій сфері України. <br> Ми створюємо унікальні проекти, що ефективно працюють у різних напрямках: <br><br>
         · Кав'ярні, які впізнають та люблять<br>
         · Кава власного обсмаження<br>
         · Послуги b2b для кавового бізнесу<br>
         · Курси та навчання бариста<br>
         · Різноманітні івенти та розважальні заходи <br>
-    <b> САЙТ В РОЗРОБЦІ! ЗОВСІМ СКОРО ОНОВЛЕННЯ </b>
     </p>
 
 
     <nav class="main_nav">
         <div href="" onclick="GoToSTART()"id="nav_link_about" class="nav_link nav_link_active">Про нас</div>
-        <div href="" onclick="GoToProjects()" id="nav_link_projects" class="nav_link">Проєкти</div>
+        <div href="" onclick="GoToProject(0)" id="nav_link_projects" class="nav_link">Проєкти</div>
         <div href="" onclick="GoToContacts()" id="nav_link_contacts" class="nav_link">Контакти</div>
     </nav>
 
