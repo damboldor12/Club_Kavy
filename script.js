@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Instagram: 'https://www.instagram.com/4943.coffeeshop/',
         Facabook: '',
         Sitle: 'https://4943.com.ua/',
-        Map: 'https://goo.gl/maps/43P3XXLwxMdBW9jQ6',
+        Map: 'https://maps.app.goo.gl/zSVmKfLTPdWwFekJA',
         Telegram: '',
         Email: '',
         IconColor: 'white'
